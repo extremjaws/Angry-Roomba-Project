@@ -32,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
                     gravity = -jumpforce;
                 }
             }
-            movement = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward + Vector3.down * gravity;
+            movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward + Vector3.down * gravity;
+            movement.Normalize();
             controller.Move(movement * Time.deltaTime * 4);
         if (transform.position.y <= -50)
         {

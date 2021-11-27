@@ -49,7 +49,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -307,8 +307,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 51
-  positionRulesNeg: {x: -9, y: 0, z: 0}
-  positionRulesPos: {x: 29, y: 0, z: 13}
+  radius: 20
 --- !u!195 &6023809250048279648
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -319,7 +318,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

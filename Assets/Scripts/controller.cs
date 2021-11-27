@@ -8,14 +8,25 @@ public class controller : MonoBehaviour
     public GameObject player;
     public Vector3 targetLoc;
     public LayerMask layerMask;
-    public Vector3 positionRulesNeg;
-    public Vector3 positionRulesPos;
+    public float radius = 20f;
+    public Vector3 randomizeLoc()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        randomDirection += player.transform.position;
+        NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
+        {
+            finalPosition = hit.position;
+        }
+        return finalPosition;
+    }
 
     private void Start()
     {
         Debug.Log("picked location");
-        randomizeLoc();
-        InvokeRepeating("check", 0, 5);
+        targetLoc = randomizeLoc();
+        GetComponent<NavMeshAgent>().SetDestination(targetLoc);
     }
     // Update is called once per frame
     void Update()
@@ -33,19 +44,8 @@ public class controller : MonoBehaviour
         }
         if (Vector3.Distance(transform.position, targetLoc) <= 1.5)
         {
-            randomizeLoc();
+            targetLoc = randomizeLoc();
+            GetComponent<NavMeshAgent>().SetDestination(targetLoc);
         }
-    }
-    void check()
-    {
-        if (GetComponent<NavMeshAgent>().speed == 0)
-        {
-            randomizeLoc();
-        }
-    }
-    void randomizeLoc()
-    {
-        targetLoc = new Vector3(Random.Range(player.transform.position.x - 15, player.transform.position.x + 15), transform.position.y, Random.Range(player.transform.position.z - 15, player.transform.position.z + 15));
-        GetComponent<NavMeshAgent>().SetDestination(targetLoc);
     }
 }

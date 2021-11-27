@@ -32,7 +32,7 @@ public class controller : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 10, layerMask))
+        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 15, layerMask))
         {
             Debug.Log(hit.collider.name);
             if (hit.collider.tag == "Player")

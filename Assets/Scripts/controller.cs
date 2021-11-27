@@ -9,6 +9,7 @@ public class controller : MonoBehaviour
     public Vector3 targetLoc;
     public LayerMask layerMask;
     public float radius = 20f;
+    AudioSource aggroSound;
     public Vector3 randomizeLoc()
     {
         Vector3 randomDirection = Random.insideUnitSphere * radius;
@@ -24,6 +25,7 @@ public class controller : MonoBehaviour
 
     private void Start()
     {
+        aggroSound = GetComponent<AudioSource>();
         Debug.Log("picked location");
         targetLoc = randomizeLoc();
         GetComponent<NavMeshAgent>().SetDestination(targetLoc);
@@ -37,9 +39,13 @@ public class controller : MonoBehaviour
             Debug.Log(hit.collider.name);
             if (hit.collider.tag == "Player")
             {
+                aggroSound.volume = 1;
                 targetLoc = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
                 GetComponent<NavMeshAgent>().SetDestination(targetLoc);
-                
+            }
+            else
+            {
+                aggroSound.volume = 0.1f;
             }
         }
         if (Vector3.Distance(transform.position, targetLoc) <= 1.5)

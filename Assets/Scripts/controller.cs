@@ -8,7 +8,8 @@ public class controller : MonoBehaviour
     public GameObject player;
     public Vector3 targetLoc;
     public LayerMask layerMask;
-    public float radius = 30f;
+    public float radius = 35f;
+    bool aggro = false;
     AudioSource aggroSound;
     public Vector3 randomizeLoc()
     {
@@ -22,11 +23,16 @@ public class controller : MonoBehaviour
         }
         return finalPosition;
     }
+    void trackplayer()
+    {
+        aggro = true;
+        targetLoc = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+        GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+    }
 
     private void Start()
     {
         aggroSound = GetComponent<AudioSource>();
-        Debug.Log("picked location");
         targetLoc = randomizeLoc();
         GetComponent<NavMeshAgent>().SetDestination(targetLoc);
     }
@@ -36,22 +42,27 @@ public class controller : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 15, layerMask))
         {
-            Debug.Log(hit.collider.name);
             if (hit.collider.tag == "Player")
             {
-                aggroSound.volume = 1;
-                targetLoc = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-                GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+                if (!aggro)
+                {
+                    aggroSound.volume = 1;
+                    trackplayer();
+                }
             }
             else
             {
                 aggroSound.volume = 0.1f;
+                aggro = false;
             }
         }
-        if (Vector3.Distance(transform.position, targetLoc) <= 1.5)
+        else
         {
-            targetLoc = randomizeLoc();
-            GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+            if (Vector3.Distance(transform.position, targetLoc) <= 1.5)
+            {
+                targetLoc = randomizeLoc();
+                GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+            }
         }
     }
 }

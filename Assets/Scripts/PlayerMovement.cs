@@ -48,8 +48,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 sprintTime += Time.deltaTime / 2;
             }
-            if (sprintTime > 5) { sprintTime = 5; }
-            updateSprintBarFill();
+            if (sprintTime > 5) { 
+                sprintTime = 5;
+                updateSprintBarFill();
+            }
+            
         }
 
         controller.Move(movement * Time.deltaTime * 4);

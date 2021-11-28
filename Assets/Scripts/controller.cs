@@ -8,7 +8,7 @@ public class controller : MonoBehaviour
     public GameObject player;
     public Vector3 targetLoc;
     public LayerMask layerMask;
-    public float radius = 20f;
+    public float radius = 30f;
     AudioSource aggroSound;
     public Vector3 randomizeLoc()
     {

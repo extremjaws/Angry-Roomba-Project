@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class buttonFunction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string SceneName = "map2";
 
-    // Update is called once per frame
-    void Update()
+    public void Goto()
     {
-        
+        SceneManager.LoadScene(SceneName);
     }
 }

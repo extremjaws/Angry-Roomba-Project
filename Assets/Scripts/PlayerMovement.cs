@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpforce = 0;
     public Vector3 spawn;
     float sprintTime = 5f;
+    public GameObject sprintBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         {
             movement = movement * 1.8f;
             sprintTime -= Time.deltaTime;
+            updateSprintBarFill();
         }
         else
         {
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 sprintTime += Time.deltaTime / 2;
             }
             if (sprintTime > 5) { sprintTime = 5; }
+            updateSprintBarFill();
         }
 
         controller.Move(movement * Time.deltaTime * 4);
@@ -54,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = spawn;
         }
+    }
+    void updateSprintBarFill()
+    {
+        float barfill = sprintTime / 5;
+        sprintBar.transform.localScale = new Vector3(barfill, 1.0f, 1.0f);
     }
 
 

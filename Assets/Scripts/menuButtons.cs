@@ -22,8 +22,4 @@ public class menuButtons : MonoBehaviour
         settingsPanel.SetActive(false);
         mainpanel.SetActive(true);
     }
-    public void loadMap(string mapName)
-    {
-        SceneManager.LoadScene(mapName);
-    }
 }

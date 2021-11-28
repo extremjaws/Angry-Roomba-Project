@@ -18,4 +18,4 @@ MonoBehaviour:
     MapPreview: {fileID: 21300000, guid: 1ba6a029464a65b43ac1d273b7b2fcad, type: 3}
   - MapName: Map2
     SceneName: Map2
-    MapPreview: {fileID: 21300000, guid: 1ba6a029464a65b43ac1d273b7b2fcad, type: 3}
+    MapPreview: {fileID: 21300000, guid: 578deea48eb1ad640a8d2a79d905f8ba, type: 3}

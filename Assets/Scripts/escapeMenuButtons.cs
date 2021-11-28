@@ -10,12 +10,15 @@ public class escapeMenuButtons : MonoBehaviour
     public void menu()
     {
         SceneManager.LoadScene("MenuScene");
+        paused = false;
+        Time.timeScale = 1;
     }
     public void resume()
     {
         holder.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         paused = false;
+        Time.timeScale = 1;
     }
     private void Update()
     {
@@ -24,6 +27,7 @@ public class escapeMenuButtons : MonoBehaviour
             holder.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             paused = true;
+            Time.timeScale = 0;
         }
     }
 }

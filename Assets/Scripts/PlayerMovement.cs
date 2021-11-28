@@ -47,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
             if (!Input.GetKey(KeyCode.LeftShift) && sprintTime < 5)
             {
                 sprintTime += Time.deltaTime / 2;
+                updateSprintBarFill();
             }
             if (sprintTime > 5) { 
                 sprintTime = 5;
-                updateSprintBarFill();
             }
             
         }

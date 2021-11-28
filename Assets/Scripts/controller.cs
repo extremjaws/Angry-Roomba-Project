@@ -22,12 +22,15 @@ public class controller : MonoBehaviour
             finalPosition = hit.position;
         }
         return finalPosition;
+
     }
     void trackplayer()
     {
+
         aggro = true;
         targetLoc = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
         GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+
     }
 
     private void Start()
@@ -44,24 +47,51 @@ public class controller : MonoBehaviour
         {
             if (hit.collider.tag == "Player")
             {
+                if (aggroSound.volume < 1f)
+                {
+                    aggroSound.volume += Time.deltaTime;
+                }
                 if (!aggro)
                 {
-                    aggroSound.volume = 1;
                     trackplayer();
                 }
             }
             else
             {
-                aggroSound.volume = 0.1f;
+                if (aggroSound.volume > 0.2f)
+                {
+                    aggroSound.volume -= Time.deltaTime;
+                }
                 aggro = false;
             }
+
         }
-        else
+        if (Vector3.Distance(transform.position, targetLoc) <= 1.5)
         {
-            if (Vector3.Distance(transform.position, targetLoc) <= 1.5)
+            if (aggro)
+            {
+                aggro = false;
+            }
+            else
             {
                 targetLoc = randomizeLoc();
                 GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+
+            }
+        }
+        if (aggro && (player.transform.position - targetLoc).magnitude > 2)
+        {
+            trackplayer();
+        }
+        if (escapeMenuButtons.paused)
+        {
+            aggroSound.volume = 0f;
+        }
+        else
+        {
+            if (aggroSound.volume == 0f)
+            {
+                aggroSound.volume = 0.2f;
             }
         }
     }

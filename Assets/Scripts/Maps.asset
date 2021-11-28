@@ -19,3 +19,6 @@ MonoBehaviour:
   - MapName: Map2
     SceneName: Map2
     MapPreview: {fileID: 21300000, guid: 578deea48eb1ad640a8d2a79d905f8ba, type: 3}
+  - MapName: Developer playground
+    SceneName: testPlayground
+    MapPreview: {fileID: 0}

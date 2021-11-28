@@ -9,6 +9,7 @@ public class MapListio : ScriptableObject
     public struct Map
     {
         public string MapName;
+        public string SceneName;
         public Sprite MapPreview;
     }
     public Map[] maps;

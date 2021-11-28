@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class menuButtons : MonoBehaviour
@@ -20,5 +21,9 @@ public class menuButtons : MonoBehaviour
     {
         settingsPanel.SetActive(false);
         mainpanel.SetActive(true);
+    }
+    public void loadMap(string mapName)
+    {
+        SceneManager.LoadScene(mapName);
     }
 }

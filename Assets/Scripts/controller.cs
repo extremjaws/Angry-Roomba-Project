@@ -47,7 +47,7 @@ public class controller : MonoBehaviour
         {
             if (hit.collider.tag == "Player")
             {
-                if (aggroSound.volume < 1f)
+                if (aggroSound.volume < 2f)
                 {
                     aggroSound.volume += Time.deltaTime;
                 }
@@ -58,7 +58,7 @@ public class controller : MonoBehaviour
             }
             else
             {
-                if (aggroSound.volume > 0.2f)
+                if (aggroSound.volume > 0.5f)
                 {
                     aggroSound.volume -= Time.deltaTime;
                 }

@@ -195,7 +195,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34380
+  m_Name: pb_Mesh-420616
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -369,7 +369,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34362
+  m_Name: pb_Mesh-420598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -612,6 +612,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59691819}
   m_CullTransparentMesh: 1
+--- !u!1 &78145807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78145808}
+  - component: {fileID: 78145810}
+  - component: {fileID: 78145809}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &78145808
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78145807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1721799290}
+  m_Father: {fileID: 438610100}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 271.47, y: 0}
+  m_SizeDelta: {x: -542.94, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &78145809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78145807}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &78145810
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78145807}
+  m_CullTransparentMesh: 1
 --- !u!1 &86053599
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +912,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34254
+  m_Name: pb_Mesh-420508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2381,9 +2457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c67301841c89d044ae2469523bd9f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainpanel: {fileID: 787850263}
+  mainpanel: {fileID: 59691819}
   settingsPanel: {fileID: 629102226}
   selectorPanel: {fileID: 811005138}
+  holder: {fileID: 1721799289}
 --- !u!114 &438610097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2457,8 +2534,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 59691820}
-  - {fileID: 1721799290}
   - {fileID: 787850264}
+  - {fileID: 78145808}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2473,7 +2550,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34236
+  m_Name: pb_Mesh-420490
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3183,7 +3260,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34290
+  m_Name: pb_Mesh-420526
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4194,12 +4271,12 @@ RectTransform:
   - {fileID: 1790991395}
   - {fileID: 482982746}
   m_Father: {fileID: 1721799290}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1999.7, y: 0}
-  m_SizeDelta: {x: 1694, y: 980}
+  m_AnchoredPosition: {x: 0, y: -1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &629102228
 MonoBehaviour:
@@ -4274,7 +4351,7 @@ RectTransform:
   - {fileID: 1433312347}
   - {fileID: 405286570}
   m_Father: {fileID: 438610100}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4352,12 +4429,12 @@ RectTransform:
   - {fileID: 547704586}
   - {fileID: 840550011}
   m_Father: {fileID: 1721799290}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 205.76, y: -1080}
-  m_SizeDelta: {x: 1693.9766, y: 980}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811005140
 MonoBehaviour:
@@ -5379,10 +5456,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 787850263}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 438610096}
+        m_TargetAssemblyTypeName: menuButtons, Assembly-CSharp
+        m_MethodName: SelectMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5390,18 +5467,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 811005138}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1088628531
 MonoBehaviour:
@@ -6151,12 +6216,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 438610096}
         m_TargetAssemblyTypeName: menuButtons, Assembly-CSharp
-        m_MethodName: settings
-        m_Mode: 1
+        m_MethodName: SelectMenu
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7186,7 +7251,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34344
+  m_Name: pb_Mesh-420580
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10372,19 +10437,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721799289}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 629102227}
   - {fileID: 811005139}
-  m_Father: {fileID: 438610100}
-  m_RootOrder: 1
+  - {fileID: 629102227}
+  m_Father: {fileID: 78145808}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -1080}
+  m_SizeDelta: {x: 0.9399414, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!43 &1753584069
 Mesh:
@@ -10392,7 +10457,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34308
+  m_Name: pb_Mesh-420544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10894,7 +10959,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-34326
+  m_Name: pb_Mesh-420562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

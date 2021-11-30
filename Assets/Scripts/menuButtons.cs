@@ -8,18 +8,14 @@ public class menuButtons : MonoBehaviour
     public GameObject mainpanel;
     public GameObject settingsPanel;
     public GameObject selectorPanel;
+    public GameObject holder;
     public void quit()
     {
         Application.Quit();
     }
-    public void settings()
+
+    public void SelectMenu(int menu)
     {
-        mainpanel.SetActive(false);
-        settingsPanel.SetActive(true);
-    }
-    public void noMoreSettings()
-    {
-        settingsPanel.SetActive(false);
-        mainpanel.SetActive(true);
+        holder.GetComponent<RectTransform>().localPosition = new Vector2(0, menu * 1080);
     }
 }

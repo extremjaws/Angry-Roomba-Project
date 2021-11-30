@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class escapeMenuButtons : MonoBehaviour
 {
@@ -16,16 +17,14 @@ public class escapeMenuButtons : MonoBehaviour
     public void resume()
     {
         holder.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
         paused = false;
         Time.timeScale = 1;
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Gamepad.current.startButton.isPressed && !paused)
         {
             holder.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
             paused = true;
             Time.timeScale = 0;
         }

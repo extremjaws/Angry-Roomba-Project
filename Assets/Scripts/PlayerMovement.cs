@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour
@@ -29,14 +30,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             gravity = 0;
-            if (Input.GetButton("Jump"))
+            if (Gamepad.current.buttonSouth.isPressed)
             {
                 gravity = -jumpforce;
             }
         }
-        movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward + Vector3.down * gravity;
+        Vector2 joyvalue = Gamepad.current.leftStick.ReadValue();
+        movement = joyvalue.x * transform.right + joyvalue.y * transform.forward + Vector3.down * gravity;
         movement.Normalize();
-        if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
+        if (Gamepad.current.buttonWest.isPressed && sprintTime > 0)
         {
             movement = movement * 1.8f;
             sprintTime -= Time.deltaTime;
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (!Input.GetKey(KeyCode.LeftShift) && sprintTime < 5)
+            if (!Gamepad.current.buttonWest.isPressed && sprintTime < 5)
             {
                 sprintTime += Time.deltaTime / 2;
                 updateSprintBarFill();

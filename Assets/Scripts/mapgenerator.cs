@@ -25,7 +25,7 @@ public class mapgenerator : MonoBehaviour
             mapButton.GetComponent<buttonFunction>().SceneName = map.SceneName;
             //mapButton.GetComponent<RectTransform>().localPosition = new Vector3(-1149 / 2, 400 + 50 * i, 0);
             //mapButton.GetComponent<RectTransform>().sizeDelta = new Vector2(1149, 50);
-            pos -= 50;
+            pos -= 100;
             i++;
         }
     }

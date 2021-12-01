@@ -21,8 +21,8 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         Vector2 joyvalue = Gamepad.current.rightStick.ReadValue();
-        float mouseX = joyvalue.x * SensitivityX;
-        float mouseY = joyvalue.y * SensitivityY;
+        float mouseX = joyvalue.x * SensitivityX * Time.deltaTime;
+        float mouseY = joyvalue.y * SensitivityY * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90, 90);

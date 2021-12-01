@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 2873368896227657083}
   - component: {fileID: 6452282992476060931}
   m_Layer: 0
-  m_Name: Jump (1)
+  m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1232,11 +1232,11 @@ RectTransform:
   m_Father: {fileID: 4745837305773372633}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 200, y: 50}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -350, y: 50}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
 --- !u!222 &5518786692982665992
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1906,8 +1906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b844a341abdf48a5e9d72702dca80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensitivityX: 0.3
-  SensitivityY: 0.3
+  SensitivityX: 0.5
+  SensitivityY: 0.5
   playerBody: {fileID: 6245051819209134971}
 --- !u!1 &7309265532343630427
 GameObject:

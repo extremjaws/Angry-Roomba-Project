@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpforce = 0;
     public Vector3 spawn;
     float sprintTime = 5f;
+    bool sprinting = false;
     public GameObject sprintBar;
     // Start is called before the first frame update
     void Start()
@@ -35,10 +36,14 @@ public class PlayerMovement : MonoBehaviour
                 gravity = -jumpforce;
             }
         }
+        if(Gamepad.current.buttonWest.wasPressedThisFrame)
+        {
+            sprinting = !sprinting;
+        }
         Vector2 joyvalue = Gamepad.current.leftStick.ReadValue();
         movement = joyvalue.x * transform.right + joyvalue.y * transform.forward + Vector3.down * gravity;
         movement.Normalize();
-        if (Gamepad.current.buttonWest.isPressed && sprintTime > 0)
+        if (sprinting && sprintTime > 0)
         {
             movement = movement * 1.8f;
             sprintTime -= Time.deltaTime;
@@ -46,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (!Gamepad.current.buttonWest.isPressed && sprintTime < 5)
+            if (sprinting && sprintTime < 5)
             {
                 sprintTime += Time.deltaTime / 2;
                 updateSprintBarFill();

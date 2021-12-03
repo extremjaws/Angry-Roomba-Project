@@ -49,7 +49,7 @@ public class controller : MonoBehaviour
             {
                 if (aggroSound.volume < 2f)
                 {
-                    aggroSound.volume += Time.deltaTime;
+                    aggroSound.volume += 2 *Time.deltaTime;
                 }
                 if (!aggro)
                 {
@@ -60,7 +60,7 @@ public class controller : MonoBehaviour
             {
                 if (aggroSound.volume > 0.5f)
                 {
-                    aggroSound.volume -= Time.deltaTime;
+                    aggroSound.volume -= 2 *Time.deltaTime;
                 }
                 aggro = false;
             }

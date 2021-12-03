@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TileTest.unity
     guid: 8db641d709a71a34591ec069784d8ddb
   - enabled: 1
+    path: Assets/Scenes/maze2.unity
+    guid: d919131c2ba884545bd88f75edd59495
+  - enabled: 1
     path: Assets/Scenes/testPlayground.unity
     guid: dc263f63fa81b3d43b489f3337789263
   m_configObjects: {}

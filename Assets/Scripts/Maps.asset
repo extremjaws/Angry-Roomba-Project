@@ -19,6 +19,6 @@ MonoBehaviour:
   - MapName: a-maze-ing
     SceneName: Map2
     MapPreview: {fileID: 21300000, guid: 578deea48eb1ad640a8d2a79d905f8ba, type: 3}
-  - MapName: Developer playground
-    SceneName: testPlayground
-    MapPreview: {fileID: 0}
+  - MapName: ow my brain
+    SceneName: maze2
+    MapPreview: {fileID: 21300000, guid: 2c65d523f01e42c49a542e481810f493, type: 3}

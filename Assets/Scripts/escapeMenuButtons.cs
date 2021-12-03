@@ -9,9 +9,9 @@ public class escapeMenuButtons : MonoBehaviour
     public static bool paused = false;
     public void menu()
     {
-        SceneManager.LoadScene("MenuScene");
         paused = false;
         Time.timeScale = 1;
+        FindObjectOfType<loadingAnimPlayer>().loadnext("MenuScene");
     }
     public void resume()
     {

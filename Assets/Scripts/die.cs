@@ -17,6 +17,6 @@ public class die : MonoBehaviour
     }
     void respawn()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FindObjectOfType<loadingAnimPlayer>().loadnext(SceneManager.GetActiveScene().name);
     }
 }

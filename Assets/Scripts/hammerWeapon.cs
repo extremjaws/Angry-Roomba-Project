@@ -15,15 +15,23 @@ public class hammerWeapon : MonoBehaviour
 
             GetComponent<Animator>().SetTrigger("SwingHammer");
             RaycastHit hit;
-            if (Physics.Raycast(raycastStart.transform.position, raycastStart.transform.TransformDirection(Vector3.forward), out hit, 5, layerMask))
+            if (Physics.Raycast(raycastStart.transform.position, raycastStart.transform.TransformDirection(Vector3.forward), out hit, 2.5f, layerMask))
             {
                 Debug.Log(hit.collider.name);
                 if (hit.collider.tag == "Respawn")
                 {
-                    hit.collider.GetComponent<controller>().enabled = false;
-                    hit.collider.GetComponent<NavMeshAgent>().enabled = false;
+                    StartCoroutine(hammer(0.25f, hit));
                 }
             }
         }
+    }
+    IEnumerator hammer(float time, RaycastHit hit)
+    {
+        yield return new WaitForSeconds(time);
+        hit.collider.GetComponent<controller>().enabled = false;
+        hit.collider.GetComponent<NavMeshAgent>().enabled = false;
+        hit.collider.GetComponent<AudioSource>().mute = true;
+        GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+        GetComponent<AudioSource>().Play();
     }
 }

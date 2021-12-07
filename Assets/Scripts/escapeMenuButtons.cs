@@ -24,10 +24,17 @@ public class escapeMenuButtons : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            holder.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            paused = true;
-            Time.timeScale = 0;
+            if (!paused)
+            {
+                holder.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                paused = true;
+                Time.timeScale = 0;
+            }
+            else
+            {
+                resume();
+            }
         }
     }
 }

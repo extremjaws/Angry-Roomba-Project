@@ -22,3 +22,6 @@ MonoBehaviour:
   - MapName: ow my brain
     SceneName: maze2
     MapPreview: {fileID: 21300000, guid: 2c65d523f01e42c49a542e481810f493, type: 3}
+  - MapName: hammer test
+    SceneName: HammerTest
+    MapPreview: {fileID: 21300000, guid: 9bcb395266094594e9905b6b7be0ae79, type: 3}

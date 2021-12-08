@@ -14,6 +14,6 @@ public class loadingAnimPlayer : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("fade-in");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(level);
+        SceneManager.LoadSceneAsync(level);
     }
 }

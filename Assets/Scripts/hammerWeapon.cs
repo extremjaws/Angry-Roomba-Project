@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 public class hammerWeapon : MonoBehaviour
 {
+    float cooldown = 0f;
     public LayerMask layerMask;
     public GameObject raycastStart;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && cooldown <= 0)
         {
 
             GetComponent<Animator>().SetTrigger("SwingHammer");
@@ -23,6 +24,14 @@ public class hammerWeapon : MonoBehaviour
                     StartCoroutine(hammer(0.25f, hit));
                 }
             }
+            cooldown = 0.5f;
+        }
+        else
+        {
+            if (cooldown > 0)
+            {
+                cooldown -= Time.deltaTime;
+            }
         }
     }
     IEnumerator hammer(float time, RaycastHit hit)
@@ -33,5 +42,6 @@ public class hammerWeapon : MonoBehaviour
         hit.collider.GetComponent<AudioSource>().mute = true;
         GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
         GetComponent<AudioSource>().Play();
+        FindObjectOfType<doorManager>().roombaCriteria -= 1;
     }
 }

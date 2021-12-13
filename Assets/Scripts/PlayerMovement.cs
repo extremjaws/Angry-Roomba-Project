@@ -8,14 +8,16 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 movement;
     private float gravity;
+    private bool elevatorMotion;
     public float jumpforce = 0;
     public Vector3 spawn;
     float sprintTime = 5f;
     public GameObject sprintBar;
+    public GameObject elevatorObject;
     // Start is called before the first frame update
     void Start()
     {
-
+        if (FindObjectOfType<elevator>()) { elevatorObject = FindObjectOfType<elevator>().gameObject; }
         controller = GetComponent<CharacterController>();
     }
 
@@ -49,10 +51,11 @@ public class PlayerMovement : MonoBehaviour
                 sprintTime += Time.deltaTime / 2;
                 updateSprintBarFill();
             }
-            if (sprintTime > 5) { 
+            if (sprintTime > 5)
+            {
                 sprintTime = 5;
             }
-            
+
         }
 
         controller.Move(movement * Time.deltaTime * 4);
@@ -60,12 +63,23 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = spawn;
         }
+        if (elevatorMotion)
+        {
+            transform.position = new Vector3(transform.position.x, elevatorObject.transform.position.y, transform.position.z);
+        }
     }
     void updateSprintBarFill()
     {
         float barfill = sprintTime / 5;
         sprintBar.transform.localScale = new Vector3(barfill, 1.0f, 1.0f);
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Finish")
+        {
+            elevatorMotion = true;
+            FindObjectOfType<elevator>().goToNextLevel();
+        }
+    }
 
 }

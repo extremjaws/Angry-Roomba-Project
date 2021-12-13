@@ -306,7 +306,7 @@ MonoBehaviour:
   targetLoc: {x: 0, y: 0, z: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 59
   radius: 20
 --- !u!195 &6023809250048279648
 NavMeshAgent:

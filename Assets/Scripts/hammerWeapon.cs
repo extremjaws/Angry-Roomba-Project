@@ -40,8 +40,13 @@ public class hammerWeapon : MonoBehaviour
         hit.collider.GetComponent<controller>().enabled = false;
         hit.collider.GetComponent<NavMeshAgent>().enabled = false;
         hit.collider.GetComponent<AudioSource>().mute = true;
+        hit.collider.GetComponentInChildren<Light>().enabled = false;
         GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
         GetComponent<AudioSource>().Play();
-        FindObjectOfType<doorManager>().roombaCriteria -= 1;
+        doorManager[] doors = FindObjectsOfType<doorManager>();
+        foreach (doorManager door in doors)
+        {
+            door.roombaCriteria -= 1;
+        }
     }
 }

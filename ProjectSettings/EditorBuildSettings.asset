@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HammerTest.unity
     guid: 80188a88df98de4478187c9fd1bd82e5
+  - enabled: 1
+    path: Assets/Scenes/hammerCampaign1.unity
+    guid: 14517b9988fbd074aa3272a79bfe18f0
   m_configObjects: {}

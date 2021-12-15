@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 movement;
     private float gravity;
-    private bool elevatorMotion;
+    public bool elevatorMotion;
     public float jumpforce = 0;
     public Vector3 spawn;
     float sprintTime = 5f;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (elevatorMotion)
         {
-            transform.position = new Vector3(transform.position.x, elevatorObject.transform.position.y, transform.position.z);
+            transform.position = elevatorObject.transform.position;
         }
     }
     void updateSprintBarFill()

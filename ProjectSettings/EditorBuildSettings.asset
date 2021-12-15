@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/hammerCampaign1.unity
     guid: 14517b9988fbd074aa3272a79bfe18f0
+  - enabled: 1
+    path: Assets/Scenes/hammerCampaign2.unity
+    guid: 08888e3b48c60ca48bbdc77c3c3b8930
   m_configObjects: {}

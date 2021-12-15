@@ -6,6 +6,7 @@ public class elevator : MonoBehaviour
 {
     public string levelToLoad;
     public bool isStart;
+    public GameObject[] roombasToActivate;
     private void Start()
     {
         if (isStart)
@@ -29,5 +30,9 @@ public class elevator : MonoBehaviour
         GetComponent<Animator>().SetTrigger("elevatorStart");
         yield return new WaitForSeconds(12);
         FindObjectOfType<PlayerMovement>().elevatorMotion = false;
+        foreach (GameObject roomba in roombasToActivate)
+        {
+            roomba.GetComponent<controller>().enabled = true;
+        }
     }
 }

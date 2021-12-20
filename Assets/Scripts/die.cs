@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class die : MonoBehaviour
 {
     public GameObject deathUI;
+    public bool god;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Respawn")
+        if (other.gameObject.tag == "Respawn" && !god)
         {
             deathUI.SetActive(true);
             GetComponent<PlayerMovement>().enabled = false;

@@ -41,6 +41,7 @@ public class hammerWeapon : MonoBehaviour
         hit.collider.GetComponent<NavMeshAgent>().enabled = false;
         hit.collider.GetComponent<AudioSource>().mute = true;
         hit.collider.GetComponentInChildren<Light>().enabled = false;
+        hit.collider.gameObject.tag = "Untagged";
         GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
         GetComponent<AudioSource>().Play();
         doorManager[] doors = FindObjectsOfType<doorManager>();

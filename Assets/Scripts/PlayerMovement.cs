@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     float sprintTime = 5f;
     public GameObject sprintBar;
     public GameObject elevatorObject;
+    public bool noclip;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,48 +25,57 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!controller.isGrounded)
+        if (!noclip)
         {
-            gravity += 4.1f * Time.deltaTime;
-        }
-        else
-        {
-            gravity = 0;
-            if (Input.GetButton("Jump"))
+            if (!controller.isGrounded)
             {
-                gravity = -jumpforce;
+                gravity += 4.1f * Time.deltaTime;
             }
-        }
-        movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward + Vector3.down * gravity;
-        movement.Normalize();
-        if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
-        {
-            movement = movement * 1.8f;
-            sprintTime -= Time.deltaTime;
-            updateSprintBarFill();
-        }
-        else
-        {
-            if (!Input.GetKey(KeyCode.LeftShift) && sprintTime < 5)
+            else
             {
-                sprintTime += Time.deltaTime / 2;
+                gravity = 0;
+                if (Input.GetButton("Jump"))
+                {
+                    gravity = -jumpforce;
+                }
+            }
+            movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward + Vector3.down * gravity;
+            movement.Normalize();
+            if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
+            {
+                movement = movement * 1.8f;
+                sprintTime -= Time.deltaTime;
                 updateSprintBarFill();
             }
-            if (sprintTime > 5)
+            else
             {
-                sprintTime = 5;
+                if (!Input.GetKey(KeyCode.LeftShift) && sprintTime < 5)
+                {
+                    sprintTime += Time.deltaTime / 2;
+                    updateSprintBarFill();
+                }
+                if (sprintTime > 5)
+                {
+                    sprintTime = 5;
+                }
+
             }
 
+            controller.Move(movement * Time.deltaTime * 4);
+            if (transform.position.y <= -50)
+            {
+                transform.position = spawn;
+            }
+            if (elevatorMotion)
+            {
+                transform.position = elevatorObject.transform.position;
+            }
         }
-
-        controller.Move(movement * Time.deltaTime * 4);
-        if (transform.position.y <= -50)
+        else
         {
-            transform.position = spawn;
-        }
-        if (elevatorMotion)
-        {
-            transform.position = elevatorObject.transform.position;
+            movement = GetComponentInChildren<Camera>().transform.forward * Input.GetAxisRaw("Vertical") + GetComponentInChildren<Camera>().transform.right * Input.GetAxisRaw("Horizontal");
+            movement.Normalize();
+            controller.Move(movement * Time.deltaTime * 20f);
         }
     }
     void updateSprintBarFill()

@@ -39,6 +39,7 @@ public class controller : MonoBehaviour
         aggroSound = GetComponent<AudioSource>();
         targetLoc = randomizeLoc();
         GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
     // Update is called once per frame
     void Update()

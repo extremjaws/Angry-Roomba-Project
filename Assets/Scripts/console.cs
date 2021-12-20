@@ -41,11 +41,6 @@ public class console : MonoBehaviour
     public void enterCommand()
     {
         args = textEntry.GetComponentInChildren<TMP_InputField>().text.Split(' ');
-        foreach (string e in args)
-        {
-            Debug.Log(e);
-        }
-        Debug.Log(args[0]);
         if (commandsFunctions.ContainsKey(args[0]))
         {
             Invoke(commandsFunctions[args[0]],0);
@@ -55,6 +50,7 @@ public class console : MonoBehaviour
         {
             consoleOutput.GetComponent<TMP_Text>().text += "\n";
             consoleOutput.GetComponent<TMP_Text>().text += "Command not recognized";
+            textEntry.GetComponentInChildren<TMP_InputField>().ActivateInputField();
         }
     }
     private void doChangeMap()

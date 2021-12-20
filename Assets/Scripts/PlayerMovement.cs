@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
             }
             if(!GetComponentInChildren<console>().consoleObject.activeSelf)
                 movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward;
-            movement += Vector3.down * gravity;
             movement.Normalize();
             if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
             {
@@ -63,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
+            movement += Vector3.down * gravity;
             controller.Move(movement * Time.deltaTime * 4);
             if (transform.position.y <= -50)
             {

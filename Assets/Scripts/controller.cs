@@ -35,6 +35,7 @@ public class controller : MonoBehaviour
 
     private void Start()
     {
+        player = FindObjectOfType<PlayerMovement>().gameObject;
         aggroSound = GetComponent<AudioSource>();
         targetLoc = randomizeLoc();
         GetComponent<NavMeshAgent>().SetDestination(targetLoc);

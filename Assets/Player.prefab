@@ -1145,6 +1145,12 @@ MonoBehaviour:
   textEntry: {fileID: 7215223328123349755}
   consoleObject: {fileID: 9150457831276648400}
   consoleOutput: {fileID: 1370581647238018180}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 59
+  spawnable:
+  - {fileID: 597645084735143255, guid: aa82809faae422649836d0252926e772, type: 3}
+  - {fileID: 6870724230889748788, guid: d5c3cff91497ed54abbd0dd16d929c3b, type: 3}
 --- !u!1 &2335797920102847838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,6 +1971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathUI: {fileID: 763510928862917847}
+  god: 0
 --- !u!114 &1563102830885494595
 MonoBehaviour:
   m_ObjectHideFlags: 0

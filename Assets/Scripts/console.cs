@@ -8,6 +8,8 @@ public class console : MonoBehaviour
     public GameObject textEntry;
     public GameObject consoleObject;
     public GameObject consoleOutput;
+    public LayerMask layerMask;
+    public GameObject[] spawnable;
     public Dictionary<string, string> commandsFunctions =
         new Dictionary<string, string>();
     string[] args;
@@ -18,6 +20,7 @@ public class console : MonoBehaviour
         commandsFunctions.Add("map", "doChangeMap");
         commandsFunctions.Add("cheats", "toggleCheats");
         commandsFunctions.Add("god", "toggleGodMode");
+        commandsFunctions.Add("spawn", "doSpawn");
     }
     private void Update()
     {
@@ -110,6 +113,42 @@ public class console : MonoBehaviour
             {
                 consoleOutput.GetComponent<TMP_Text>().text += "\n";
                 consoleOutput.GetComponent<TMP_Text>().text += "God mode disabled";
+            }
+        }
+        else
+        {
+            consoleOutput.GetComponent<TMP_Text>().text += "\n";
+            consoleOutput.GetComponent<TMP_Text>().text += "You must enable cheats first! (command: cheats)";
+        }
+    }
+    private void doSpawn()
+    {
+        if (cheats)
+        {
+            if(args.Length == 2)
+            {
+                int arg1 = 0;
+                if(int.TryParse(args[1], out arg1))
+                {
+                    if(arg1 < spawnable.Length && arg1 >= 0)
+                    {
+                        RaycastHit hit;
+                        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformVector(Vector3.forward), out hit, 1000, layerMask))
+                        {
+                            Instantiate(spawnable[arg1], hit.point, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        consoleObject.GetComponent<TMP_Text>().text += "\n";
+                        consoleObject.GetComponent<TMP_Text>().text += "Expected \"spawnable id\" in range of 0 to " + spawnable.Length.ToString();
+                    }
+                }
+            }
+            else
+            {
+                consoleObject.GetComponent<TMP_Text>().text += "\n";
+                consoleObject.GetComponent<TMP_Text>().text += "Expected 1 argument \"spawnable id\"";
             }
         }
         else

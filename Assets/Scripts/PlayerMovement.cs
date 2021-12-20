@@ -39,7 +39,9 @@ public class PlayerMovement : MonoBehaviour
                     gravity = -jumpforce;
                 }
             }
-            movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward + Vector3.down * gravity;
+            if(!GetComponentInChildren<console>().consoleObject.activeSelf)
+                movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward;
+            movement += Vector3.down * gravity;
             movement.Normalize();
             if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
             {
@@ -73,7 +75,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            movement = GetComponentInChildren<Camera>().transform.forward * Input.GetAxisRaw("Vertical") + GetComponentInChildren<Camera>().transform.right * Input.GetAxisRaw("Horizontal");
+
+            if (!GetComponentInChildren<console>().consoleObject.activeSelf)
+                movement = GetComponentInChildren<Camera>().transform.forward * Input.GetAxisRaw("Vertical") + GetComponentInChildren<Camera>().transform.right * Input.GetAxisRaw("Horizontal");
+            else
+                movement = Vector3.zero;
             movement.Normalize();
             controller.Move(movement * Time.deltaTime * 20f);
         }

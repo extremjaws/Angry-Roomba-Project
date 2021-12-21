@@ -9,6 +9,7 @@ public class SpawnAPI : LuaAPIBase
     protected override void InitialiseAPITable()
     {
         m_ApiTable["SpawnObject"] = (System.Func<int, int, int, int, bool>)(Lua_SpawnObject);
+        m_ApiTable["SpawnObjectExt"] = (System.Func<int, int, int, int, int, int, int, bool>)(Lua_SpawnObjectExt);
         m_ApiTable["FindPlayer"] = (System.Func<float[]>)(Lua_FindPlayer);
         m_ApiTable["FindRoombas"] = (System.Func<float[][]>)(Lua_FindRoombas);
         m_ApiTable["SetPlayerPos"] = (System.Func<int,int,int,bool>)(Lua_SetPlayerPos);
@@ -17,9 +18,20 @@ public class SpawnAPI : LuaAPIBase
     private bool Lua_SpawnObject(int id, int x, int y, int z)
     {
         GameObject[] spawnable = MonoBehaviour.FindObjectOfType<console>().spawnable;
-        if(id < spawnable.Length && id >= 0)
+        if (id < spawnable.Length && id >= 0)
         {
             MonoBehaviour.Instantiate(spawnable[id], new Vector3(x, y, z), Quaternion.identity);
+            return true;
+        }
+        return false;
+    }
+    [LuaApiFunction(name = "SpawnObjectExt", description = "Spawns a object at a given x y z with a rotation", codeExample = "SpawnObject(2, 25, 12, 5, 0, 90, 0) -- Spawns a I hallway piece rotated on the y direction by 90 degrees")]
+    private bool Lua_SpawnObjectExt(int id, int x, int y, int z, int rx, int ry, int rz)
+    {
+        GameObject[] spawnable = MonoBehaviour.FindObjectOfType<console>().spawnable;
+        if (id < spawnable.Length && id >= 0)
+        {
+            MonoBehaviour.Instantiate(spawnable[id], new Vector3(x, y, z), Quaternion.Euler(rx,ry,rz));
             return true;
         }
         return false;

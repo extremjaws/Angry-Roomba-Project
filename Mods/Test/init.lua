@@ -12,8 +12,11 @@ function CommandHandler(args)
 				end
 			end
 		end
-	elseif args[2] == "map" then
-		Objects.SpawnObject(2, 0, 10, 0)
-		Objects.SetPlayerPos(0, 11, 0)
 	end
+end
+if Scenes.GetCurrentScene() == "LuaMaps" then
+	Objects.SpawnObjectExt(2, 0, 0, 0, 0, 0, 0)
+	Objects.SpawnObjectExt(2, 4, 0, 0, 0, 0, 0)
+	Objects.SpawnObjectExt(3, 8, 0, -2, 0, 0, 0)
+	Objects.SetPlayerPos(0, 1, 0)
 end

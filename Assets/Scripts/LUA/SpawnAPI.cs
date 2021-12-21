@@ -33,7 +33,7 @@ public class SpawnAPI : LuaAPIBase
     {
         List<float[]> roombapos = new List<float[]>();
         controller[] roombas = MonoBehaviour.FindObjectsOfType<controller>();
-        foreach(controller roomba in roombas)
+        foreach (controller roomba in roombas)
         {
             roombapos.Add(new float[] { roomba.transform.position.x, roomba.transform.position.y, roomba.transform.position.z });
         }

@@ -17,6 +17,7 @@ public class ModManager : MonoBehaviour
         luaMods = new List<LuaMod>();
         foreach (string modDir in Directory.GetDirectories(".\\Mods"))
         {
+            if (modDir.Split('\\')[modDir.Split('\\').Length - 1].StartsWith(".")) continue;
             LuaMod mod;
             mod.vm = new LuaVM();
             mod.directory = modDir+"\\";

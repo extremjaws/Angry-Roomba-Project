@@ -49,5 +49,6 @@ public class hammerWeapon : MonoBehaviour
         {
             door.roombaCriteria -= 1;
         }
+        FindObjectOfType<ModManager>().RoombaKilledEvent();
     }
 }

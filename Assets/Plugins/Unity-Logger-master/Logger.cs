@@ -319,11 +319,7 @@ public class Logger
     /// </summary>
     private static readonly Dictionary<Priority, string> priorityToColour = new Dictionary<Priority, string>
     {
-		#if UNITY_PRO_LICENSE
-        { Priority.Info,        "white" },
-		#else
-		{ Priority.Info,        "black" },
-		#endif
+		{ Priority.Info,        "white" },
         { Priority.Warning,     "orange" },
         { Priority.Error,       "red" },
         { Priority.FatalError,  "red" },

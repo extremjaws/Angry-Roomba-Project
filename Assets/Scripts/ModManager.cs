@@ -37,4 +37,16 @@ public class ModManager : MonoBehaviour
             }
         }
     }
+
+    public void RoombaKilledEvent()
+    {
+        foreach (LuaMod mod in luaMods)
+        {
+            DynValue handlerFunction = mod.vm.GetGlobal("RoombaKilled");
+            if (handlerFunction != DynValue.Nil)
+            {
+                mod.vm.Call(handlerFunction);
+            }
+        }
+    }
 }

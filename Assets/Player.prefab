@@ -1849,6 +1849,7 @@ GameObject:
   - component: {fileID: 6245051819209134970}
   - component: {fileID: 3992392289274026675}
   - component: {fileID: 1563102830885494595}
+  - component: {fileID: 2141296925142459966}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1985,6 +1986,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hammerWeapon: {fileID: 5084425402443945522}
+--- !u!114 &2141296925142459966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245051819209134964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035c40829a4018642b34b3f76f02d407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6245051820171003216
 GameObject:
   m_ObjectHideFlags: 0

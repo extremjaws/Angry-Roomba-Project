@@ -21,6 +21,7 @@ public class console : MonoBehaviour
         commandsFunctions.Add("cheats", "toggleCheats");
         commandsFunctions.Add("god", "toggleGodMode");
         commandsFunctions.Add("spawn", "doSpawn");
+        commandsFunctions.Add("luacommand", "doLuaCommand");
     }
     private void Update()
     {
@@ -121,12 +122,12 @@ public class console : MonoBehaviour
     {
         if (cheats)
         {
-            if(args.Length == 2)
+            if (args.Length == 2)
             {
                 int arg1 = 0;
-                if(int.TryParse(args[1], out arg1))
+                if (int.TryParse(args[1], out arg1))
                 {
-                    if(arg1 < spawnable.Length && arg1 >= 0)
+                    if (arg1 < spawnable.Length && arg1 >= 0)
                     {
                         RaycastHit hit;
                         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.TransformVector(Vector3.forward), out hit, 1000, layerMask))
@@ -152,5 +153,9 @@ public class console : MonoBehaviour
             consoleOutput.GetComponent<TMP_Text>().text += "\n";
             consoleOutput.GetComponent<TMP_Text>().text += "You must enable cheats first! (command: cheats)";
         }
+    }
+    private void doLuaCommand()
+    {
+        FindObjectOfType<ModManager>().LuaCommand(args);
     }
 }

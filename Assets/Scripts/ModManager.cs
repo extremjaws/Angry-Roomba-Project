@@ -49,4 +49,16 @@ public class ModManager : MonoBehaviour
             }
         }
     }
+
+    public void LuaCommand(string[] args)
+    {
+        foreach (LuaMod mod in luaMods)
+        {
+            DynValue handlerFunction = mod.vm.GetGlobal("CommandHandler");
+            if (handlerFunction != DynValue.Nil)
+            {
+                mod.vm.Call(handlerFunction, new object[] { args });
+            }
+        }
+    }
 }

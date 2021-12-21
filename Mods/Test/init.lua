@@ -12,5 +12,8 @@ function CommandHandler(args)
 				end
 			end
 		end
+	elseif args[2] == "map" then
+		Objects.SpawnObject(2, 0, 10, 0)
+		Objects.SetPlayerPos(0, 11, 0)
 	end
 end

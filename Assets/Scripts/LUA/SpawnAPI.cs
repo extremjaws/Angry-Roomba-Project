@@ -11,6 +11,7 @@ public class SpawnAPI : LuaAPIBase
         m_ApiTable["SpawnObject"] = (System.Func<int, int, int, int, bool>)(Lua_SpawnObject);
         m_ApiTable["FindPlayer"] = (System.Func<float[]>)(Lua_FindPlayer);
         m_ApiTable["FindRoombas"] = (System.Func<float[][]>)(Lua_FindRoombas);
+        m_ApiTable["SetPlayerPos"] = (System.Func<int,int,int,bool>)(Lua_SetPlayerPos);
     }
     [LuaApiFunction(name = "SpawnObject", description = "Spawns a object at a given x y z", codeExample = "SpawnObject(0, 25, 12, 5) -- Spawns a hammer at x 25, y 12, and z 5")]
     private bool Lua_SpawnObject(int id, int x, int y, int z)
@@ -38,5 +39,11 @@ public class SpawnAPI : LuaAPIBase
             roombapos.Add(new float[] { roomba.transform.position.x, roomba.transform.position.y, roomba.transform.position.z });
         }
         return roombapos.ToArray();
+    }
+    [LuaApiFunction(name = "FindPlayer", description = "Finds the player and returns the x y z in a table [x, y, z]", codeExample = "SpawnObject(0, FindPlayer()[1], FindPlayer()[2], FindPlayer()[3]) -- give the player a hammer")]
+    private bool Lua_SetPlayerPos(int x, int y, int z)
+    {
+        MonoBehaviour.FindObjectOfType<PlayerMovement>().transform.position = new Vector3(x, y, z);
+        return true;
     }
 }

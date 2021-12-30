@@ -21,6 +21,8 @@ public class console : MonoBehaviour
         commandsFunctions.Add("cheats", "toggleCheats");
         commandsFunctions.Add("god", "toggleGodMode");
         commandsFunctions.Add("spawn", "doSpawn");
+        commandsFunctions.Add("usprint", "doUnlimitedSprint");
+        commandsFunctions.Add("unlimitedsprint", "doUnlimitedSprint");
     }
     private void Update()
     {
@@ -146,6 +148,20 @@ public class console : MonoBehaviour
                 consoleObject.GetComponent<TMP_Text>().text += "\n";
                 consoleObject.GetComponent<TMP_Text>().text += "Expected 1 argument \"spawnable id\"";
             }
+        }
+        else
+        {
+            consoleOutput.GetComponent<TMP_Text>().text += "\n";
+            consoleOutput.GetComponent<TMP_Text>().text += "You must enable cheats first! (command: cheats)";
+        }
+    }
+    private void doUnlimitedSprint()
+    {
+        if (cheats)
+        {
+            FindObjectOfType<PlayerMovement>().usprint = !FindObjectOfType<PlayerMovement>().usprint;
+            consoleOutput.GetComponent<TMP_Text>().text += "\n";
+            consoleOutput.GetComponent<TMP_Text>().text += "Toggled unlimited sprint. (now set to " + FindObjectOfType<PlayerMovement>().usprint.ToString() + ")";
         }
         else
         {

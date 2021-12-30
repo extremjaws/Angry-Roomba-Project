@@ -6,10 +6,12 @@ public class doorManager : MonoBehaviour
 {
     public int roombaCriteria;
     public GameObject[] roombasToActivate;
+    bool opened = false;
     private void Update()
     {
-        if (roombaCriteria == 0)
+        if (roombaCriteria == 0 && !opened)
         {
+            opened = true;
             Debug.Log("roomba criteria met");
             GetComponentInChildren<Animator>().SetTrigger("OpenDoor");
             foreach (GameObject roomba in roombasToActivate)

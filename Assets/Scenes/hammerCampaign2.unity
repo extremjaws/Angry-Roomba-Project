@@ -620,6 +620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: door
       objectReference: {fileID: 0}
+    - target: {fileID: 6811564531391855933, guid: 276b703d57e010140948ff0f382e9591, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6811564531391855935, guid: 276b703d57e010140948ff0f382e9591, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -634,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 1059374387}
     - target: {fileID: 6811564531432525613, guid: 276b703d57e010140948ff0f382e9591, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6811564531432525614, guid: 276b703d57e010140948ff0f382e9591, type: 3}
       propertyPath: m_Mesh
@@ -7658,7 +7662,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1334
+  m_Name: pb_Mesh-4052
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13398,7 +13402,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1320
+  m_Name: pb_Mesh-4038
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

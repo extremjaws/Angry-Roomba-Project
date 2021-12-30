@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject sprintBar;
     public GameObject elevatorObject;
     public bool noclip;
+    public bool usprint;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
             {
                 movement = movement * 1.8f;
-                sprintTime -= Time.deltaTime;
+                if (!usprint) { sprintTime -= Time.deltaTime; }
                 updateSprintBarFill();
             }
             else

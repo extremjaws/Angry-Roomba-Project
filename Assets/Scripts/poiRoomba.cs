@@ -35,6 +35,7 @@ public class poiRoomba : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 6, layerMask))
         {
+            Debug.Log(hit);
             if (hit.collider.tag == "Player")
             {
                 if (aggroSound.volume < 2f)
@@ -56,6 +57,7 @@ public class poiRoomba : MonoBehaviour
             }
 
         }
+        if (index >= pois.Length) { index = 0; }
         if (Vector3.Distance(transform.position, destination) <= 0.5f)
         {
             GetComponent<NavMeshAgent>().SetDestination(pois[index].transform.position);
@@ -67,7 +69,6 @@ public class poiRoomba : MonoBehaviour
             GetComponent<NavMeshAgent>().SetDestination(pois[index].transform.position);
             destination = pois[index].transform.position;
         }
-        if (index >= pois.Length) { index = 0; }
         Debug.Log(index);
     }
 }

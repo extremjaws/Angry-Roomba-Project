@@ -18,7 +18,6 @@ public class hammerWeapon : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(raycastStart.transform.position, raycastStart.transform.TransformDirection(Vector3.forward), out hit, 2.5f, layerMask))
             {
-                Debug.Log(hit.collider.name);
                 if (hit.collider.tag == "Respawn")
                 {
                     StartCoroutine(hammer(0.25f, hit));
@@ -49,5 +48,6 @@ public class hammerWeapon : MonoBehaviour
         {
             door.roombaCriteria -= 1;
         }
+        FindObjectOfType<ModManager>().RoombaKilledEvent();
     }
 }

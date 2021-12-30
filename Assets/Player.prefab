@@ -1151,6 +1151,12 @@ MonoBehaviour:
   spawnable:
   - {fileID: 597645084735143255, guid: aa82809faae422649836d0252926e772, type: 3}
   - {fileID: 6870724230889748788, guid: d5c3cff91497ed54abbd0dd16d929c3b, type: 3}
+  - {fileID: 2702804222943412644, guid: 0a7bf43690e502445ad42a6e72a59a1f, type: 3}
+  - {fileID: 871880860785931257, guid: 19f2caecea7a95f49a20cdabdc269b8d, type: 3}
+  - {fileID: 5434547309887694309, guid: 92a929846ad6a324c9243212c32fc9b4, type: 3}
+  - {fileID: 37462377929451262, guid: 2153a61d072ff20488742990ffa0fc5a, type: 3}
+  - {fileID: 3256523312744210913, guid: a1d37cbd3c3f4c44b824cc53dad8aeed, type: 3}
+  cheats: 0
 --- !u!1 &2335797920102847838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,8 +2101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761b844a341abdf48a5e9d72702dca80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SensitivityX: 500
-  SensitivityY: 500
+  SensitivityX: 3
+  SensitivityY: 3
   playerBody: {fileID: 6245051819209134971}
 --- !u!1 &7215223328123349755
 GameObject:

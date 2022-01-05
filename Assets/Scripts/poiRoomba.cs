@@ -12,6 +12,7 @@ public class poiRoomba : MonoBehaviour
     public GameObject player;
     bool aggro;
     public AudioSource aggroSound;
+    Vector3 prevPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class poiRoomba : MonoBehaviour
     {
 
         aggro = true;
+        prevPos = player.transform.position;
         destination = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
         GetComponent<NavMeshAgent>().SetDestination(destination);
 
@@ -46,6 +48,10 @@ public class poiRoomba : MonoBehaviour
                 {
                     trackplayer();
                 }
+                if (Vector3.Distance(player.transform.position, prevPos) >= 0.5f)
+                {
+                    trackplayer();
+                }
             }
             else
             {
@@ -56,6 +62,10 @@ public class poiRoomba : MonoBehaviour
                 aggro = false;
             }
 
+        }
+        else
+        {
+            aggro = false;
         }
         if (index >= pois.Length) { index = 0; }
         if (Vector3.Distance(transform.position, destination) <= 0.5f)

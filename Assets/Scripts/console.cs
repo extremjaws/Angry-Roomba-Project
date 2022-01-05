@@ -13,7 +13,7 @@ public class console : MonoBehaviour
     public Dictionary<string, string> commandsFunctions =
         new Dictionary<string, string>();
     string[] args;
-    bool cheats = false;
+    public bool cheats = false;
     private void Start()
     {
         commandsFunctions.Add("noclip", "doNoclip");

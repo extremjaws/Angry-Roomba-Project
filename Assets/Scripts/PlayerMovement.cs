@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "Finish")
         {
             elevatorMotion = true;
-            FindObjectOfType<elevator>().goToNextLevel();
+            FindObjectOfType<elevator>().goUp();
         }
     }
 

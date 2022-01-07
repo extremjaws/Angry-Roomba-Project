@@ -10,16 +10,16 @@ public class elevator : MonoBehaviour
     public bool isStart;
     public GameObject[] roombasToActivate;
     public GameObject elevatorTrigger;
-    public void goToNextLevel()
-    {
-        goUp();
-    }
-    async void goUp()
+    public GameObject playerSnapObj;
+    public async void goUp()
     {
         GetComponent<Animator>().SetTrigger("elevatorUp");
         //yield return new WaitForSeconds(12);
+        SceneManager.LoadSceneAsync(levelToLoad, LoadSceneMode.Additive);
+        FindObjectOfType<PlayerMovement>().elevatorObject = playerSnapObj;
+        FindObjectOfType<PlayerMovement>().elevatorMotion = true;
         await Task.Delay(15000);
-        SceneManager.LoadSceneAsync(levelToLoad, LoadSceneMode.Additive); 
+        FindObjectOfType<PlayerMovement>().elevatorMotion = false;
     }
     //async void startLevel()
     //{

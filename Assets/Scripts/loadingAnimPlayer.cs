@@ -1,19 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class loadingAnimPlayer : MonoBehaviour
 {
-    public void loadnext(string level)
-    {
-       StartCoroutine(LoadLevel(level));
-    }
-
-    IEnumerator LoadLevel(string level)
+    public async void loadnext(string level)
     {
         GetComponent<Animator>().SetTrigger("fade-in");
-        yield return new WaitForSeconds(1);
+        await Task.Delay(1000);
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadSceneAsync(level);
     }

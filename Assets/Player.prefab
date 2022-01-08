@@ -1947,6 +1947,7 @@ MonoBehaviour:
   sprintBar: {fileID: 5945804324148055347}
   elevatorObject: {fileID: 0}
   noclip: 0
+  usprint: 0
 --- !u!143 &6245051819209134970
 CharacterController:
   m_ObjectHideFlags: 0

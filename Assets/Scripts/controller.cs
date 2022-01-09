@@ -10,7 +10,8 @@ public class controller : MonoBehaviour
     public LayerMask layerMask;
     public float radius = 35f;
     bool aggro = false;
-    AudioSource aggroSound;
+    public bool isActivated;
+    public AudioSource aggroSound;
     public Vector3 randomizeLoc()
     {
         Vector3 randomDirection = Random.insideUnitSphere * radius;
@@ -36,65 +37,76 @@ public class controller : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
-        aggroSound = GetComponent<AudioSource>();
-        targetLoc = randomizeLoc();
-        GetComponent<NavMeshAgent>().SetDestination(targetLoc);
-        player = FindObjectOfType<PlayerMovement>().gameObject;
+        if (isActivated)
+        {
+            targetLoc = randomizeLoc();
+            GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+        }
+        //player = FindObjectOfType<PlayerMovement>().gameObject;
     }
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 15, layerMask))
+        if (isActivated)
         {
-            if (hit.collider.tag == "Player")
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, player.transform.position - transform.position, out hit, 15, layerMask))
             {
-                if (aggroSound.volume < 2f)
+                if (hit.collider.tag == "Player")
                 {
-                    aggroSound.volume += 2 *Time.deltaTime;
+                    if (aggroSound.volume < 2f)
+                    {
+                        aggroSound.volume += 2 * Time.deltaTime;
+                    }
+                    if (!aggro)
+                    {
+                        trackplayer();
+                    }
                 }
-                if (!aggro)
+                else
                 {
-                    trackplayer();
+                    if (aggroSound.volume > 0.5f)
+                    {
+                        aggroSound.volume -= 2 * Time.deltaTime;
+                    }
+                    aggro = false;
                 }
+
+            }
+            if (Vector3.Distance(transform.position, targetLoc) <= 1.5)
+            {
+                if (aggro)
+                {
+                    aggro = false;
+                }
+                else
+                {
+                    targetLoc = randomizeLoc();
+                    GetComponent<NavMeshAgent>().SetDestination(targetLoc);
+
+                }
+            }
+            if (aggro && (player.transform.position - targetLoc).magnitude > 2)
+            {
+                trackplayer();
+            }
+            if (escapeMenuButtons.paused)
+            {
+                aggroSound.volume = 0f;
             }
             else
             {
-                if (aggroSound.volume > 0.5f)
+                if (aggroSound.volume == 0f)
                 {
-                    aggroSound.volume -= 2 *Time.deltaTime;
+                    aggroSound.volume = 0.2f;
                 }
-                aggro = false;
-            }
-
-        }
-        if (Vector3.Distance(transform.position, targetLoc) <= 1.5)
-        {
-            if (aggro)
-            {
-                aggro = false;
-            }
-            else
-            {
-                targetLoc = randomizeLoc();
-                GetComponent<NavMeshAgent>().SetDestination(targetLoc);
-
             }
         }
-        if (aggro && (player.transform.position - targetLoc).magnitude > 2)
-        {
-            trackplayer();
-        }
-        if (escapeMenuButtons.paused)
-        {
-            aggroSound.volume = 0f;
-        }
-        else
-        {
-            if (aggroSound.volume == 0f)
-            {
-                aggroSound.volume = 0.2f;
-            }
-        }
+    }
+    public void activate()
+    {
+        isActivated = true;
+        targetLoc = randomizeLoc();
+        GetComponent<NavMeshAgent>().SetDestination(targetLoc);
     }
 }

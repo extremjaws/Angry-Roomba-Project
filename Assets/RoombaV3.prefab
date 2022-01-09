@@ -297,7 +297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6870724230889748788}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e8eeb8a2014d604dbecb017f6d508ac, type: 3}
   m_Name: 
@@ -308,6 +308,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 59
   radius: 20
+  isActivated: 1
+  aggroSound: {fileID: 6023809250048279661}
 --- !u!195 &6023809250048279648
 NavMeshAgent:
   m_ObjectHideFlags: 0

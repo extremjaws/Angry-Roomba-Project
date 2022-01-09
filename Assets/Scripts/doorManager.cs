@@ -16,7 +16,7 @@ public class doorManager : MonoBehaviour
             GetComponentInChildren<Animator>().SetTrigger("OpenDoor");
             foreach (GameObject roomba in roombasToActivate)
             {
-                roomba.GetComponent<controller>().enabled = true;
+                roomba.GetComponent<controller>().activate();
                 roomba.GetComponent<AudioSource>().enabled = true;
             }
         }

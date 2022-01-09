@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2347054166775628428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16, y: 8.5, z: -145}
+  m_LocalPosition: {x: 1.5, y: -1.5, z: -1.25}
   m_LocalScale: {x: 3.5, y: 3, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8385002986811484624}
@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29833bcfc44a4a46abe29f75c06cd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 3087791559174616265}
+  sceneToUnload: 
+  roombasToActivate: []
 --- !u!1 &3087791559174616265
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3087791559174616265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.5, y: 10, z: -145.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8385002986811484624}
@@ -349,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8385002986811484625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3087791559174616264}

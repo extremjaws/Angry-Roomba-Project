@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (FindObjectOfType<elevator>()) { elevatorObject = FindObjectOfType<elevator>().gameObject; }
         controller = GetComponent<CharacterController>();
+        foreach (controller c in FindObjectsOfType<controller>())
+        {
+            c.enabled = true;
+        }
     }
 
     // Update is called once per frame

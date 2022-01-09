@@ -8,6 +8,7 @@ public class playerSpawner : MonoBehaviour
 {
     GameObject player;
     bool setplayerpos = false;
+    public GameObject[] objectsToActivate;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +19,13 @@ public class playerSpawner : MonoBehaviour
         if (!FindObjectOfType<PlayerMovement>())
         {
             SceneManager.LoadScene("playerContainer", LoadSceneMode.Additive);
+            if (objectsToActivate.Length != 0)
+            {
+                foreach (GameObject o in objectsToActivate)
+                {
+                    o.SetActive(true);
+                }
+            }
         }
         else
         {
@@ -26,7 +34,7 @@ public class playerSpawner : MonoBehaviour
     }
     private void Update()
     {
-        if(!player)
+        if (!player)
         {
             player = FindObjectOfType<PlayerMovement>().gameObject;
             setplayerpos = true;

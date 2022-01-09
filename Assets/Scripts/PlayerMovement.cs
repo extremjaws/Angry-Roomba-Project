@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+    InputDevice RightHand;
+    InputDevice LeftHand;
     private CharacterController controller;
     private Vector3 movement;
     private float gravity;
@@ -25,6 +28,25 @@ public class PlayerMovement : MonoBehaviour
         {
             c.enabled = true;
         }
+        List<InputDevice> inputDevices = new List<InputDevice>();
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Right, inputDevices);
+        if (inputDevices.Count <= 0)
+        {
+            Debug.LogError("Unable to find right contoller");
+        }
+        else
+        {
+            RightHand = inputDevices[0];
+        }
+        InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left, inputDevices);
+        if (inputDevices.Count <= 0)
+        {
+            Debug.LogError("Unable to find left contoller");
+        }
+        else
+        {
+            LeftHand = inputDevices[0];
+        }
     }
 
     // Update is called once per frame
@@ -39,13 +61,24 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 gravity = 0;
-                if (Input.GetButton("Jump"))
+                if(RightHand.TryGetFeatureValue(CommonUsages.primaryButton, out bool pressed) && pressed)
                 {
                     gravity = -jumpforce;
                 }
             }
-            if(!GetComponentInChildren<console>().consoleObject.activeSelf)
-                movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward;
+            Vector2 joypad = Vector2.zero;
+            if (LeftHand.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 walk))
+            {
+                joypad = walk;
+            }
+            Vector3 right = Camera.main.transform.right;
+            right.y = 0;
+            right.Normalize();
+            Vector3 forward = Camera.main.transform.forward;
+            forward.y = 0;
+            right.Normalize();
+            if (!GetComponentInChildren<console>().consoleObject.activeSelf)
+                movement = joypad.x * right + joypad.y * forward;
             movement.Normalize();
             if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
             {

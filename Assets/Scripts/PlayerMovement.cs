@@ -28,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
         {
             c.enabled = true;
         }
+        TryGetControllers();
+    }
+
+    void TryGetControllers()
+    {
+
         List<InputDevice> inputDevices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Right, inputDevices);
         if (inputDevices.Count <= 0)
@@ -52,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (RightHand.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 turn))
+        {
+            transform.Rotate(Vector3.up, turn.x * 2);
+        }
         if (!noclip)
         {
             if (!controller.isGrounded)
@@ -80,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             if (!GetComponentInChildren<console>().consoleObject.activeSelf)
                 movement = joypad.x * right + joypad.y * forward;
             movement.Normalize();
-            if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)
+            if (RightHand.TryGetFeatureValue(CommonUsages.secondaryButton, out bool sprint) && sprint && sprintTime > 0)
             {
                 movement = movement * 1.8f;
                 if (!usprint) { sprintTime -= Time.deltaTime; }
@@ -88,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (!Input.GetKey(KeyCode.LeftShift) && sprintTime < 5)
+                if (RightHand.TryGetFeatureValue(CommonUsages.secondaryButton, out sprint) && !sprint && sprintTime < 5)
                 {
                     sprintTime += Time.deltaTime / 2;
                     updateSprintBarFill();

@@ -12,13 +12,9 @@ public class playerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        loadPlayerContainer();
-    }
-    async Task loadPlayerContainer()
-    {
         if (!FindObjectOfType<PlayerMovement>())
         {
-            SceneManager.LoadScene("playerContainer", LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("playerContainer", LoadSceneMode.Additive);
             if (objectsToActivate.Length != 0)
             {
                 foreach (GameObject o in objectsToActivate)

@@ -28,3 +28,6 @@ MonoBehaviour:
   - MapName: campaign test 01
     SceneName: hammerCampaign1
     MapPreview: {fileID: 21300000, guid: 310c6876bfaa1984f88485fdcaec2c76, type: 3}
+  - MapName: Button Moment
+    SceneName: buttonMoment
+    MapPreview: {fileID: 21300000, guid: 052e4f30a0fc68e4eb4b5c3f64bd4a0b, type: 3}

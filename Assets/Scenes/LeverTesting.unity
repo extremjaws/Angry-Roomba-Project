@@ -697,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811564531391855931, guid: 276b703d57e010140948ff0f382e9591, type: 3}
       propertyPath: buttonCriteria
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6811564531391855931, guid: 276b703d57e010140948ff0f382e9591, type: 3}
       propertyPath: roombaCriteria
@@ -2622,7 +2622,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12298
+  m_Name: pb_Mesh-484976
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2786,7 +2786,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1278
+  m_Name: pb_Mesh-484560
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3011,7 +3011,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1264
+  m_Name: pb_Mesh308868
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3309,7 +3309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811564531391855931, guid: 276b703d57e010140948ff0f382e9591, type: 3}
       propertyPath: buttonCriteria
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6811564531391855931, guid: 276b703d57e010140948ff0f382e9591, type: 3}
       propertyPath: roombaCriteria
@@ -3380,7 +3380,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12300
+  m_Name: pb_Mesh308886
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

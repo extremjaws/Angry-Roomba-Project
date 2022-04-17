@@ -10,6 +10,9 @@ public class Shotgun : MonoBehaviour
     public LayerMask layerMask;
     public GameObject raycastStart;
     public float range;
+    public int pellots;
+    public float spreadX;
+    public float spreadY;
 
     private Animator animator;
     private float timer;
@@ -20,6 +23,7 @@ public class Shotgun : MonoBehaviour
     public AudioSource fireSound;
     public AudioSource DryMagSound;
     public AudioSource Pump;
+    public AudioSource reloadSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +56,16 @@ public class Shotgun : MonoBehaviour
             ammoCounter.text = ammo.ToString() + "/12";
             animator.SetTrigger("Fire");
             fireSound.Play();
-            RaycastHit hit;
-            if (Physics.Raycast(raycastStart.transform.position, raycastStart.transform.TransformDirection(Vector3.forward), out hit, range, layerMask))
+            for (int i = 0; i < pellots; i++)
             {
-                if (hit.collider.tag == "Respawn")
+                RaycastHit hit;
+                if (Physics.Raycast(raycastStart.transform.position, raycastStart.transform.TransformDirection(Vector3.forward + new Vector3(Random.Range(-spreadX, spreadX), Random.Range(-spreadY, spreadY), 0)), out hit, range, layerMask))
                 {
-                    bulletHit(5, hit);
+                    Debug.DrawLine(raycastStart.transform.position, hit.point, Color.green, 5);
+                    if (hit.collider.tag == "Respawn")
+                    {
+                        bulletHit(5, hit);
+                    }
                 }
             }
             await Task.Delay(800);
@@ -75,9 +83,11 @@ public class Shotgun : MonoBehaviour
             animator.SetBool("Reloading", true);
             while (ammo < 12)
             {
-                await Task.Delay(500);
+                await Task.Delay(50);
+                reloadSound.Play();
                 ammo++;
                 ammoCounter.text = ammo.ToString() + "/12";
+                await Task.Delay(450);
             }
             animator.SetBool("Reloading", false);
             reloading = false;

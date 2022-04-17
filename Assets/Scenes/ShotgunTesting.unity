@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.1418457
       objectReference: {fileID: 0}
+    - target: {fileID: 1793051148377774874, guid: a79a328f30ba2184e82f54261b967fc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3108355385567064196, guid: a79a328f30ba2184e82f54261b967fc4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -205,6 +209,10 @@ PrefabInstance:
     - target: {fileID: 6245051819209134971, guid: a79a328f30ba2184e82f54261b967fc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744258207952138327, guid: a79a328f30ba2184e82f54261b967fc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a79a328f30ba2184e82f54261b967fc4, type: 3}
@@ -556,7 +564,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -874,7 +882,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

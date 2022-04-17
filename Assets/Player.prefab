@@ -2237,6 +2237,7 @@ GameObject:
   - component: {fileID: 3992392289274026675}
   - component: {fileID: 1563102830885494595}
   - component: {fileID: 2141296925142459966}
+  - component: {fileID: 1340252236029901677}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2386,6 +2387,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035c40829a4018642b34b3f76f02d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1340252236029901677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245051819209134964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a1fb1442ad997743a8d6b95dd7c48e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgunWeapon: {fileID: 1793051148377774874}
+  shotgunHud: {fileID: 7744258207952138327}
 --- !u!1 &6245051820171003216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,12 +2777,12 @@ GameObject:
   - component: {fileID: 1775253807579647461}
   - component: {fileID: 5781853944149948376}
   m_Layer: 3
-  m_Name: ammoCounter
+  m_Name: shotgunUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1021915893434146358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3243,10 +3258,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -82.5
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8380157826906577798, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7640558969779515294, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7616715442571854242, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -6902573867230041995, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 375774ff3e1e8ef4d9e0770f158756d3, type: 2}
+    - target: {fileID: -6184081502101098564, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3263,9 +3306,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4eb45956d6bf2964fb04256a24c74665, type: 2}
+    - target: {fileID: -516098083770646512, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
       propertyPath: m_Name
       value: shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1129496810705857465, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3275,10 +3330,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e7442a70d9855f24d9258c0a0bcc3a7f, type: 2}
+    - target: {fileID: 3211442047540326737, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370501162130834691, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512510688612296998, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e7442a70d9855f24d9258c0a0bcc3a7f, type: 2}
+    - target: {fileID: 8416272007918961125, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8700725330082129686, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5730bf7ecb60bf4bb4488041c002a6f, type: 3}
 --- !u!1 &1793051148377774874 stripped
@@ -3483,43 +3558,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &6664998658257914056
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793051148377774874}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1edf704f3b223b04680cd84d3d531783, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3763087010392729251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793051148377774874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ff5927c17c48345ae1267275144f71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 1.5
-  ammo: 12
-  ammoCounter: {fileID: 3108499950295254343}
-  fireSound: {fileID: 6818207759676944852}
-  DryMagSound: {fileID: 9067274363785161386}
-  Pump: {fileID: 763930189023965365}
 --- !u!82 &9067274363785161386
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3616,6 +3654,48 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &6664998658257914056
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793051148377774874}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1edf704f3b223b04680cd84d3d531783, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3763087010392729251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793051148377774874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ff5927c17c48345ae1267275144f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  raycastStart: {fileID: 6245051820171003216}
+  range: 12
+  cooldown: 1.5
+  ammo: 12
+  ammoCounter: {fileID: 3108499950295254343}
+  fireSound: {fileID: 6818207759676944852}
+  DryMagSound: {fileID: 9067274363785161386}
+  Pump: {fileID: 763930189023965365}
 --- !u!1001 &5354472260850281315
 PrefabInstance:
   m_ObjectHideFlags: 0

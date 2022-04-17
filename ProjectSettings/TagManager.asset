@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hammer
   - Start
+  - shotgun
   layers:
   - Default
   - TransparentFX

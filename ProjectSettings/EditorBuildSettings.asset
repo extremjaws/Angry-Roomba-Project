@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/playerContainer.unity
     guid: 806c25c0925812b41b5fbcd4be169e61
   - enabled: 1
+    path: Assets/Scenes/Assault.unity
+    guid: edf09878165c3e84e8ff5afd67558957
+  - enabled: 1
     path: Assets/Scenes/Map1.unity
     guid: a5b953b4c509bfa4483d0553da44ee83
   - enabled: 1

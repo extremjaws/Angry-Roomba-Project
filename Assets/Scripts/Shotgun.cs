@@ -11,8 +11,7 @@ public class Shotgun : MonoBehaviour
     public GameObject raycastStart;
     public float range;
     public int pellots;
-    public float spreadX;
-    public float spreadY;
+    public float spread;
 
     private Animator animator;
     private float timer;
@@ -24,6 +23,7 @@ public class Shotgun : MonoBehaviour
     public AudioSource DryMagSound;
     public AudioSource Pump;
     public AudioSource reloadSound;
+    public ParticleSystem muzzleFlash;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,11 +55,13 @@ public class Shotgun : MonoBehaviour
             ammo--;
             ammoCounter.text = ammo.ToString() + "/12";
             animator.SetTrigger("Fire");
+            muzzleFlash.Play();
             fireSound.Play();
             for (int i = 0; i < pellots; i++)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(raycastStart.transform.position, raycastStart.transform.TransformDirection(Vector3.forward + new Vector3(Random.Range(-spreadX, spreadX), Random.Range(-spreadY, spreadY), 0)), out hit, range, layerMask))
+                float rot = Random.Range(0, 360);
+                if (Physics.Raycast(raycastStart.transform.position, raycastStart.transform.TransformDirection(Vector3.forward + new Vector3(Mathf.Cos(rot) * Random.Range(-spread, spread), Mathf.Sin(rot) * Random.Range(-spread, spread), 0)), out hit, range, layerMask))
                 {
                     Debug.DrawLine(raycastStart.transform.position, hit.point, Color.green, 5);
                     if (hit.collider.tag == "Respawn")

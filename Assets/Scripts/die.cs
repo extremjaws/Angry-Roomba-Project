@@ -7,10 +7,12 @@ public class die : MonoBehaviour
 {
     public GameObject deathUI;
     public bool god;
+    private bool dead = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Respawn" && !god)
+        if (other.gameObject.tag == "Respawn" && !god && !dead)
         {
+            dead = true;
             deathUI.SetActive(true);
             GetComponent<PlayerMovement>().enabled = false;
             Invoke("respawn", 3);

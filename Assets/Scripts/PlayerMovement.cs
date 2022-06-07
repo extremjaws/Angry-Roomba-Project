@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject elevatorObject;
     public bool noclip;
     public bool usprint;
+    public int jumps = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +37,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 gravity += 4.1f * Time.deltaTime;
             }
-            else
-            {
+            else { 
                 gravity = 0;
-                if (Input.GetButton("Jump"))
-                {
-                    gravity = -jumpforce;
-                }
+                jumps = 2;
             }
-            if(!GetComponentInChildren<console>().consoleObject.activeSelf)
+            if (Input.GetButtonDown("Jump") && jumps > 0)
+            {
+                gravity = -jumpforce;
+                jumps -= 1;
+            }
+            if (!GetComponentInChildren<console>().consoleObject.activeSelf)
                 movement = Input.GetAxisRaw("Horizontal") * transform.right + Input.GetAxisRaw("Vertical") * transform.forward;
             movement.Normalize();
             if (Input.GetKey(KeyCode.LeftShift) && sprintTime > 0)

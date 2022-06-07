@@ -829,8 +829,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287730151
-  m_fontColor: {r: 0.9056604, g: 0.56817377, b: 0.56817377, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1580,8 +1580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -659.50006}
-  m_SizeDelta: {x: -20, y: -1331}
+  m_AnchoredPosition: {x: 0, y: -387}
+  m_SizeDelta: {x: -20, y: -774}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5221204450039508335
 CanvasRenderer:
@@ -2531,12 +2531,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elevatorMotion: 0
-  jumpforce: 1
+  jumpforce: 1.2
   spawn: {x: -0.5, y: 2, z: 0}
   sprintBar: {fileID: 5945804324148055347}
   elevatorObject: {fileID: 0}
   noclip: 0
   usprint: 0
+  jumps: 2
 --- !u!143 &6245051819209134970
 CharacterController:
   m_ObjectHideFlags: 0

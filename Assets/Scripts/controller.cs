@@ -34,7 +34,7 @@ public class controller : MonoBehaviour
 
     }
 
-    private void Start()
+    void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
         if (isActivated)

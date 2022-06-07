@@ -25,7 +25,7 @@ public class elevator : MonoBehaviour
         FindObjectOfType<PlayerMovement>().elevatorObject = playerSnapObj;
         FindObjectOfType<PlayerMovement>().elevatorMotion = true;
         await Task.Delay(15000);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(levelToLoad));
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(levelToLoad));
         FindObjectOfType<PlayerMovement>().elevatorMotion = false;
         foreach (GameObject roomba in roombasToActivate)
         {

@@ -11,6 +11,6 @@ public class loadingAnimPlayer : MonoBehaviour
         GetComponent<Animator>().SetTrigger("fade-in");
         await Task.Delay(1000);
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadSceneAsync(level);
+        SceneManager.LoadScene(level);
     }
 }

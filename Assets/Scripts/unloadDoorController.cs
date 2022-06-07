@@ -21,7 +21,7 @@ public class unloadDoorController : MonoBehaviour
                     roomba.GetComponent<controller>().activate();
                 }
             }
-            door.GetComponent<Animator>().SetTrigger("CloseDoor");
+            door.GetComponent<Animator>().SetTrigger("close");
             await Task.Delay(2000);
             if (objectsToDeactivate.Length != 0)
             {

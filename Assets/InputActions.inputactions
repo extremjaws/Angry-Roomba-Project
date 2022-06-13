@@ -1,0 +1,33 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "8a3fc481-e180-4ede-b8b2-ef8f6992c929",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Button",
+                    "id": "70ae8a3b-d1fd-4e0d-833f-872b49333232",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "535a6926-86f7-4a03-ac97-47f6733ea71c",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

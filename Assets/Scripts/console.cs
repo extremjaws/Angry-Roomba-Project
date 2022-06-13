@@ -26,19 +26,6 @@ public class console : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown("`"))
-        {
-            consoleObject.SetActive(!consoleObject.activeSelf);
-            if (Cursor.lockState == CursorLockMode.None)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            else if (Cursor.lockState == CursorLockMode.Locked)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            textEntry.GetComponentInChildren<TMP_InputField>().ActivateInputField();
-        }
     }
     public void enterCommand()
     {

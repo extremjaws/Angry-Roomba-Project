@@ -14,26 +14,26 @@ public class CameraMovement : MonoBehaviour
     private float yRotation = 0f;
     // Start is called before the first frame update
     void Start()
-    { 
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            GetComponent<Camera>().enabled = true;
-            GetComponent<AudioListener>().enabled = true;
-        }
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        GetComponent<Camera>().enabled = true;
+        GetComponent<AudioListener>().enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-            mouseX = Input.GetAxis("Mouse X") * SensitivityX;
-            mouseY = Input.GetAxis("Mouse Y") * SensitivityY;
+        if (consoleVII.open)
+            return;
+        mouseX = Input.GetAxis("Mouse X") * SensitivityX;
+        mouseY = Input.GetAxis("Mouse Y") * SensitivityY;
 
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90, 90);
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-            yRotation = Mathf.Clamp(yRotation, -90, 90);
+        yRotation = Mathf.Clamp(yRotation, -90, 90);
 
-            transform.localRotation = Quaternion.Euler(xRotation, 0, yRotation);
-            playerBody.Rotate(Vector3.up * mouseX);
+        transform.localRotation = Quaternion.Euler(xRotation, 0, yRotation);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }

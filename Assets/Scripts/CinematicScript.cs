@@ -41,12 +41,12 @@ public class CinematicScript : MonoBehaviour
     {
         if (!isEnd)
         {
-            await Task.Delay((int)Events[index].eventTime * 1000);
+            await Task.Delay((int)(Events[index].eventTime * 1000 / Time.timeScale));
             Events[index].eventObject.GetComponent<Animator>().SetTrigger(Events[index].eventName);
         }
         else
         {
-            await Task.Delay((int)cinematicEnd * 1000);
+            await Task.Delay((int)(cinematicEnd * 1000 / Time.timeScale));
             GetComponent<Camera>().enabled = false;
             mainCamera.enabled = true;
             CharacterController.enabled = true;
